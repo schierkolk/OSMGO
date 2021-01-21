@@ -1,0 +1,24 @@
+osmgo export ../andorra-latest.osm.pbf  ../output andorra-l-ns
+osmgo export ../andorra-latest.osm.pbf  ../output andorra-w-ns
+osmgo export ../andorra-latest.osm.pbf  ../output andorra-l-nst -t highway
+osmgo export ../andorra-latest.osm.pbf  ../output andorra-w-nst -t highway
+osmgo export ../andorra-latest.osm.pbf  ../output andorra-l-nstf -t highway -f line
+osmgo export ../andorra-latest.osm.pbf  ../output andorra-w-nstf -t highway -f line
+osmgo export ../andorra-latest.osm.pbf  ../output andorra-l-nstfs -t highway -f line -c ../andorra_hole.shp
+osmgo export ../andorra-latest.osm.pbf  ../output andorra-w-nstfs -t highway -f line -c ../andorra_hole.shp
+osmgo export ../andorra-latest.osm.pbf  ../output andorra-l-nsw  -w 2
+osmgo export ../andorra-latest.osm.pbf  ../output andorra-w-nsw  -w 2
+osmgo export ../andorra-latest.osm.pbf  ../output andorra-l-nsws  -w 2 -c ../andorra_hole.shp
+osmgo export ../andorra-latest.osm.pbf  ../output andorra-w-nsws  -w 2 -c ../andorra_hole.shp
+osmgo extract ../andorra-latest.osm.pbf ../andorra-extract_lc.pbf -c ../andorra_hole.shp
+osmgo export ../andorra-extract_lc.pbf  ../output andorra_e_l-ns  -t highway -f line
+osmgo extract ../andorra-latest.osm.pbf ../andorra-extract_wc.pbf -c ../andorra_hole.shp
+osmgo export ../andorra-extract_wc.pbf  ../output andorra_e_w-ns -t highway -f line
+osmgo extract ../andorra-latest.osm.pbf ../andorra-extract_lc.osm
+osmgo extract ../andorra-latest.osm.pbf ../andorra-extract_wc.osm
+osmgo export ../andorra-latest.osm.pbf  ../output andorra_e_l-ns3  -t highway -f line -b 1.4275,42.4705,1.7201,42.6325
+error osmgo export ../andorra-latest.osm.pbf  ../output andorra_e_l-ns3  -t highway -f line -b 1.4275,42.4705,1.7201,42.6325 -c ../andorra_hole.shp
+osmgo extract ../andorra-latest.osm.pbf ../andorra-extract_lc.pbf -b 1.4275,42.4705,1.7201,42.6325
+error osmgo extract ../andorra-latest.osm.pbf ../andorra-extract_lc.pbf -b 1.4275,42.4705,1.7201,42.6325 -c ../andorra_hole.shp
+osmgo extract ../andorra-latest.osm.pbf ../andorra-extract_lc.pbf -c ../andorra.gdb -l andorra_hole
+osmgo export ../andorra-latest.osm.pbf  ../output andorra_e_l-ns3  -t highway -f line  -c ../andorra.gdb -l andorra_hole
